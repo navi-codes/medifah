@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /src/components/Chatbot/node_modules
-/src/components/Chatbot/node_modules/variables.env
+/src/components/Chatbot/variables.env
 /.pnp
 .pnp.js
 
