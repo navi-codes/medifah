@@ -1,0 +1,4 @@
+node_modules
+public
+src/components/Chatbot/node_modules
+src/components/Login/vendor
