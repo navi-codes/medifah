@@ -6,19 +6,19 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom';
 //components import
 import fire from '../config/Fire';
 import Test from './Test';
-import Map from './Map/Map'
-import Medifah from './Chatbot/Medifah'
-import MediFaH from './Chatbot/MediFaH'
+import Map from './Map/Map';
+import Medifah from './Chatbot/Medifah';
+import MediFaH from './Chatbot/MediFaH';
 import Login from './Login/Login';
-import DoctorSignup from './DoctorSignup/DoctorSignup'
-import Navbar from './Navbar/Navbar'
-import Navigator from './Map/Navigator'
+import DoctorSignup from './DoctorSignup/DoctorSignup';
+import Navbar from './Navbar/Navbar';
+import Navigator from './Map/Navigator';
 
 class App extends Component {
   constructor() {
     super();
     this.state = ({
-      user: null,
+      user: null
     });
     this.authListener = this.authListener.bind(this);
   }
@@ -54,7 +54,7 @@ class App extends Component {
           </BrowserRouter>:<Login />}
 
       </div>
-    )
+    );
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
 import fire from '../../config/Fire';
-import './login.css'
+import './login.css';
 
 class Login extends Component {
   constructor(props) {
@@ -30,28 +30,28 @@ class Login extends Component {
   signup(e){
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-    }).then((u)=>{console.log(u)})
+    }).then((u)=>{console.log(u);})
     .catch((error) => {
         console.log(error);
-      })
+      });
   }
   render() {
     return (
        <div className="container">
        <form>
       <div class="form-group">
-      
+
        <input value={this.state.email} onChange={this.handleChange} type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  required/>
-       
+
       </div>
        <div class="form-group">
-     
+
       <input value={this.state.password} onChange={this.handleChange} type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required/>
       </div>
       <button type="submit" onClick={this.login} class="btn btn-primary">Login</button>
       <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Signup</button>
  </form>
- 
+
  </div>
     );
   }

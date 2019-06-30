@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import icon from './icon.png';
-import './App.css'
-import './mapbox-gl.css'
-import '../../node_modules/mapbox-gl/dist/mapbox-gl.css'
+import './App.css';
+import './mapbox-gl.css';
+import '../../node_modules/mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 
 const chords =[
-{"lat":76.9558,"lan":11.0168,"tipcy":"Hospital 1"},
-{"lat":76.8558,"lan":11.1168,"tipcy":"Hospital 2"},
-{"lat":76.7558,"lan":11.2168,"tipcy":"Hospital 3"},
-{"lat":76.6558,"lan":11.3168,"tipcy":"Hospital 4"},
-{"lat":75.9558,"lan":10.0168,"tipcy":"Hospital 5"},
-{"lat":76.8558,"lan":10.1168,"tipcy":"Hospital 6"},
-{"lat":75.1558,"lan":11.2168,"tipcy":"Hospital 7"},
-{"lat":78.6558,"lan":11.3168,"tipcy":"Hospital 8"}
+{'lat':76.9558,'lan':11.0168,'tipcy':'Hospital 1'},
+{'lat':76.8558,'lan':11.1168,'tipcy':'Hospital 2'},
+{'lat':76.7558,'lan':11.2168,'tipcy':'Hospital 3'},
+{'lat':76.6558,'lan':11.3168,'tipcy':'Hospital 4'},
+{'lat':75.9558,'lan':10.0168,'tipcy':'Hospital 5'},
+{'lat':76.8558,'lan':10.1168,'tipcy':'Hospital 6'},
+{'lat':75.1558,'lan':11.2168,'tipcy':'Hospital 7'},
+{'lat':78.6558,'lan':11.3168,'tipcy':'Hospital 8'}
 ];
 
 class HospitalFinderMap extends Component {
@@ -38,12 +38,12 @@ class HospitalFinderMap extends Component {
 
     map.on('load', function() {
       map.addSource('geoJsonSource', {
-        "type": "geojson",
+        'type': 'geojson',
         'cluster': true,
         'clusterRadius': 50,
-        "data": {
-          "type": "FeatureCollection",
-          "features": getJsonFeatures()          
+        'data': {
+          'type': 'FeatureCollection',
+          'features': getJsonFeatures()
           }
       });
 
@@ -73,12 +73,12 @@ class HospitalFinderMap extends Component {
         if (error) throw error;
         map.addImage('icon', image);
         map.addLayer({
-          "id": 'icon-layer',
-          "type": "symbol",
-          source: "geoJsonSource",
-          "layout": {
-            "icon-image": 'icon',
-            "icon-size": 0.15
+          'id': 'icon-layer',
+          'type': 'symbol',
+          source: 'geoJsonSource',
+          'layout': {
+            'icon-image': 'icon',
+            'icon-size': 0.15
           }
         });
       });
@@ -117,8 +117,6 @@ class HospitalFinderMap extends Component {
       map.getCanvas().style.cursor = '';
       popup.remove();
     });
-
-
   }
   //{this.renderMap()}
 
@@ -126,10 +124,10 @@ class HospitalFinderMap extends Component {
     return (
       <div className="App">
       <header className="App-header">
-        
+
       </header>
       {this.renderMap()}
-      
+
       </div>
 
     );
@@ -141,15 +139,15 @@ export default HospitalFinderMap;
 function getJsonFeatures () {
   return chords.map(function(chord){
     return {
-      "type": "Feature",
-      "properties": {
-        "description": "<strong>"+chord.tipcy+"</strong>",
-        "icon": "theatre"
+      'type': 'Feature',
+      'properties': {
+        'description': '<strong>'+chord.tipcy+'</strong>',
+        'icon': 'theatre'
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [chord.lat,chord.lan]
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [chord.lat,chord.lan]
       }
-    };  
-  });    
+    };
+  });
 }

@@ -1,6 +1,4 @@
-
 // process-message.js
-
 const Dialogflow = require('dialogflow');
 const Pusher = require('pusher');
 
@@ -12,8 +10,8 @@ const languageCode = 'en-US';
 const config = {
   credentials: {
     private_key: process.env.DIALOGFLOW_PRIVATE_KEY,
-    client_email: process.env.DIALOGFLOW_CLIENT_EMAIL,
-  },
+    client_email: process.env.DIALOGFLOW_CLIENT_EMAIL
+  }
 };
 
 const pusher = new Pusher({
@@ -21,7 +19,7 @@ const pusher = new Pusher({
   key: process.env.PUSHER_APP_KEY,
   secret: process.env.PUSHER_APP_SECRET,
   cluster: process.env.PUSHER_APP_CLUSTER,
-  encrypted: true,
+  encrypted: true
 });
 
 const sessionClient = new Dialogflow.SessionsClient(config);
@@ -34,9 +32,9 @@ const processMessage = (message) => {
     queryInput: {
       text: {
         text: message,
-        languageCode,
-      },
-    },
+        languageCode
+      }
+    }
   };
 
   sessionClient
@@ -44,7 +42,7 @@ const processMessage = (message) => {
       .then((responses) => {
         const result = responses[0].queryResult;
         return pusher.trigger('bot', 'bot-response', {
-          message: result.fulfillmentText,
+          message: result.fulfillmentText
         });
       })
       .catch((err) => {

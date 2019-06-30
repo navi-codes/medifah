@@ -2,7 +2,7 @@
 
     import React, { Component } from 'react';
     import Pusher from 'pusher-js';
-    import './variables.env'
+    import './variables.env';
     import './medifah.css';
 
     class Medifah extends Component {
@@ -10,24 +10,24 @@
         super(props);
         this.state = {
           userMessage: '',
-          conversation: [],
+          conversation: []
         };
       }
 
       componentDidMount() {
         const pusher = new Pusher('c05db7fc46a13fbe899d', {
           cluster:  'ap2',
-          encrypted: true,
+          encrypted: true
         });
 
         const channel = pusher.subscribe('bot');
         channel.bind('bot-response', data => {
           const msg = {
             text: data.message,
-            user: 'ai',
+            user: 'ai'
           };
           this.setState({
-            conversation: [...this.state.conversation, msg],
+            conversation: [...this.state.conversation, msg]
           });
         });
       }
@@ -42,19 +42,19 @@
 
         const msg = {
           text: this.state.userMessage,
-          user: 'human',
+          user: 'human'
         };
 
         this.setState({
-          conversation: [...this.state.conversation, msg],
+          conversation: [...this.state.conversation, msg]
         });
 
         fetch('http://localhost:5000/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'Application/json' },
           body: JSON.stringify({
-            message: this.state.userMessage,
-          }),
+            message: this.state.userMessage
+          })
         });
 
         this.setState({ userMessage: '' });

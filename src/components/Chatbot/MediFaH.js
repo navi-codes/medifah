@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
-import {Button} from 'react-bootstrap'
-import Test from '../Test'
+import React, { Component } from 'react';
+import {Button} from 'react-bootstrap';
+import Test from '../Test';
 
 class MediFaH extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			showComponent: false,
-		}
+			showComponent: false
+		};
 	}
 
 	_onButtonClick = () => {
 		this.setState({
-			showComponent: true,
+			showComponent: true
 		});
 	}
 
@@ -26,8 +26,8 @@ class MediFaH extends Component{
 				src="https://console.dialogflow.com/api-client/demo/embedded/01af6849-4943-47d5-ab33-590409e9e39f">
 				</iframe>
 			</div>
-		)
+		);
 	}
 }
 
-export default MediFaH
+export default MediFaH;

@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {Navbar, Nav} from 'react-bootstrap'
-import Logout from '../Test'
+import React, {Component} from 'react';
+import {Navbar, Nav} from 'react-bootstrap';
+import Logout from '../Test';
 
 class NavHeader extends Component{
   render(){
@@ -25,7 +25,7 @@ class NavHeader extends Component{
     </Nav>
 
   </Navbar>
-      )
+      );
   }
 }
-export default NavHeader
+export default NavHeader;

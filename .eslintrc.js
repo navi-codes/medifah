@@ -23,5 +23,14 @@ module.exports = {
     'jsx-a11y'
   ],
   'rules': {
+    'quotes': [1, 'single'],
+    'camelcase': [0],
+    'no-use-before-define': [0],
+    'semi': [2],
+    'no-unused-vars': [0],
+    'comma-dangle': [2, 'never'],
+    'no-redeclare': [2, { 'builtinGlobals': true }],
+    'no-trailing-spaces': 2,
+    'padded-blocks': [2, { 'blocks': 'never' }]
   },
 };
